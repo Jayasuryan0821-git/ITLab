@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="style.css" rel="stylesheet" />
+    <title>HTML Basics</title>
+  </head>
+  <body>
+    <div class="myDiv">
+      <h1>HTML-5</h1>
+      <p>
+        HTML (HyperText Markup Language) is the most basic building block of the
+        Web.<br />
+        It defines the meaning and structure of web content.<br />
+        Other technologies besides HTML are generally used to describe a web
+        page's appearance/presentation (CSS) or functionality/behavior
+        <del>(JavaScript)</del> (JS).
+      </p>
+    </div>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
+      >HTML</a
+    >
+    <img src="images/html_logo.png " alt="HTML logo" height="200" width="200" />
+    <h2>CSS</h2>
+    <p>
+      <strong>Cascading Style Sheets</strong> (CSS) is a stylesheet language
+      used to describe the presentation of a document written in HTML or XML
+      (including XML dialects such as SVG, MathML or XHTML).<br />
+      CSS describes how elements should be rendered on screen, on paper, in
+      speech, or on other media.
+    </p>
+    <p>
+      <em>CSS</em> is among the core languages of the open web and is
+      standardized across Web browsers according to W3C specifications.
+      Previously, the development of various parts of CSS specification was done
+      synchronously, which allowed the versioning of the latest recommendations.
+      You might have heard about CSS1, CSS2.1, or even CSS3. There will never be
+      a CSS3 or a CSS4; rather, everything is now CSS without a version number
+    </p>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"
+      >CSS</a
+    >
+    <img src="images/css_logo.png " alt="CSS logo" height="200" width="200" />
+
+    <h3>JS</h3>
+    <p>
+      JavaScript (JS) is a lightweight interpreted (or just-in-time compiled)
+      programming language with first-class functions.<br />
+      While it is most well-known as the scripting language for Web pages, many
+      non-browser environments also use it, such as Node.js, Apache CouchDB and
+      Adobe Acrobat. JavaScript is a prototype-based, multi-paradigm,
+      single-threaded, dynamic language, supporting object-oriented, imperative,
+      and declarative <del>(e.g. functional programming)</del>
+      <ins>OOP</ins> styles.
+    </p>
+    <a
+      href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+      target="_blank"
+      >JS</a
+    >
+    <img src="images/js_logo.png " alt="JS logo" height="200" width="200" />
+    <h4>Django</h4>
+    <p>
+      <strong><em>Django</em></strong> is a high-level Python web framework that
+      encourages rapid development and clean, pragmatic design. Built by
+      experienced developers, it takes care of much of the hassle of web
+      development, so you can focus on writing your app without needing to
+      reinvent the wheel. It's free and open source.
+    </p>
+    <h5>MySQL</h5>
+    <span id="mySpan">
+      <p>
+        MySQL Enterprise Edition includes the most comprehensive set of advanced
+        features, management tools and technical support to achieve the highest
+        levels of MySQL scalability, security, reliability, and uptime. It
+        reduces the risk, cost, and complexity in developing, deploying, and
+        managing business-critical MySQL applications.
+      </p>
+    </span>
+    <pre>MySQL Enterprise Edition.</pre>
+
+    <p dir="rtl">Welcome to the master course</p>
+
+    <a href="default.asp">
+    <img
+      src="images/info.jpg"
+      alt="HTML tutorial"
+      style="width: 42px; height: 42px"
+    />
+    <h6>Node.js</h6>
+    <a href="more_info.html">Course Details</a>
+    <p>Click on the objects</p>
+    <img
+      src="images/workplace.jpg"
+      alt="Office"
+      usemap="#workmap"
+      width="400"
+      height="379"
+    />
+    <map name="workmap">
+      <area
+        shape="rect"
+        coords="34,44,270,350"
+        alt="Computer"
+        href="computer.html"
+      />
+      <area
+        shape="rect"
+        coords="290,172,333,250"
+        alt="Phone"
+        href="phone.html"
+      />
+      <area
+        shape="circle"
+        coords="337,300,44"
+        alt="Coffee"
+        href="coffee.html"
+      />
+    </map>
+
+    <table>
+      <caption>
+        Languages needed for basic web dev
+      </caption>
+      <tr>
+        <th>Language</th>
+        <th>Difficulty</th>
+        <th>Duration</th>
+      </tr>
+      <tr>
+        <td>HTML</td>
+        <td>Easy</td>
+        <td>2 days</td>
+      </tr>
+      <tr>
+        <td>CSS</td>
+        <td>Medium</td>
+        <td>1 week</td>
+      </tr>
+      <tr>
+        <td>JS</td>
+        <td>Medium</td>
+        <td>1 weeks</td>
+      </tr>
+    </table>
+
+    <table>
+      <caption>
+        Applying rowspan and colspan
+      </caption>
+      <tr>
+        <th colspan="2">Name</th>
+        <th>Duration</th>
+      </tr>
+      <tr>
+        <td>HTML</td>
+        <td>CSS</td>
+        <td>2 weeks</td>
+      </tr>
+      <tr>
+        <td>Django</td>
+        <td>MySQL</td>
+        <td>2 months</td>
+      </tr>
+    </table>
+    <mark>
+    <p>Course plan</p>
+    <ol>
+        <li>HTML: 2 days</li>
+        <li>CSS: 1 week</li>
+        <li>JS: 2 week</li>
+    </ol>
+    </mark>
+    <p>Plan for Django,MySQL</p>
+    <ul>
+        <li>Django: 1 month</li>
+        <li>MySQL: 1 month</li>
+    </ul>
+    <canvas id = "myCanvas" width = "200" height = "100" style ="border:1px solid #000000;"></canvas>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx  = canvas.getContext('2d');
+        ctx.beginPath();
+        ctx.moveTo(50,50);
+        ctx.lineTo(200,100);
+        ctx.stroke();
+
+        ctx.beginPath()
+        ctx.arc(300,100,50,0,2*Math.PI);
+        ctx.stroke();
+
+        ctx.beginPath()
+        ctx.rect(50,150,100,50);
+        ctx.stroke();
+        
+        ctx.arc(200,150,50,0,Math.PI);
+        ctx.stroke();
+
+        ctx.fillStyle = "red";
+        ctx.fillRect(50,50,100,50)
+
+        const linearGradient = ctx.createLinearGradient(0, 0, 400, 0);
+        linearGradient.addColorStop(0,'red');
+        linearGradient.addColorStop(0,'blue');
+        ctx.fillStyle = linearGradient;
+        ctx.fillRect(200, 50, 200, 50);
+
+        
+        const grd = ctx.createRadialGradient(75,50,5,90,60,100);
+        grd.addColorStop(0,"red");
+        grd.addColorStop(1,"white");
+        ctx.fillStyle = grd;
+        ctx.fillRect(10,10,150,100);
+
+        ctx.strokeStyle = 'black'; 
+        ctx.lineWidth = 3;
+    </script>
+  </body>
+</html>

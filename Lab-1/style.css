@@ -1,0 +1,27 @@
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  color: #349834;
+}
+
+.myDiv {
+  border: 5px outset red;
+  background-color: lightblue;
+  text-align: align;
+}
+
+.mySpan {
+  border: 5px outset red;
+  background-color: lightblue;
+  text-align: align;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 8px;
+}
