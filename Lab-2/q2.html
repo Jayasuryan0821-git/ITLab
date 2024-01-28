@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Greet User</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Greetings and Dynamic Clock</h1>
+    <div id="clock"></div>
+    <script>
+      function displayClock() {
+        var date = new Date();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+        if (hours > 10) {
+          hours = "0" + hours;
+        } else {
+          hours = hours;
+        }
+        if (minutes < 10) {
+          minutes = "0" + minutes;
+        } else {
+          minutes = minutes;
+        }
+
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        } else {
+          seconds = seconds;
+        }
+        document.getElementById("clock").innerHTML =
+          hours + ":" + minutes + ":" + seconds;
+      }
+
+      function wishUser() {
+        var date = new Date();
+        var hours = date.getHours();
+        var greeting;
+        if (hours < 12) {
+          greeting = "Good morning";
+        } else if (hours > 11 && hours < 18) {
+          greeting = "Good afternoon";
+        } else {
+          greeting = "Good evening";
+        }
+        alert(greeting);
+      }
+      wishUser();
+      displayClock();
+      setInterval(displayClock, 1000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rain Animation</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        background-color: #000;
+      }
+
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="rainCanvas"></canvas>
+    <script>
+      var canvas = document.getElementById("rainCanvas");
+      var ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      var raindrops = [];
+
+      //constructor x horizontal pos, y veritcal pos
+      function Raindrop(x, y, speed) {
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+
+        this.update = function () {
+          this.y += this.speed;
+          if (this.y > canvas.height) {
+            this.y = 0;
+          }
+        };
+        this.draw = function () {
+          ctx.beginPath();
+          ctx.moveTo(this.x, this.y);
+          ctx.lineTo(this.x, this.y + 10);
+          ctx.strokeStyle = "#00f";
+          ctx.stroke();
+        };
+      }
+
+      function init() {
+        for (var i = 0; i < 100; i++) {
+          var x = Math.random() * canvas.width;
+          var y = Math.random() * canvas.height;
+          var speed = 2 + Math.random() * 4;
+          raindrops.push(new Raindrop(x, y, speed));
+        }
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (var i = 0; i < raindrops.length; i++) {
+          raindrops[i].update();
+          raindrops[i].draw();
+        }
+      }
+
+      init();
+      animate();
+    </script>
+  </body>
+</html>

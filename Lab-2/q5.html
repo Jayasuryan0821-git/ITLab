@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Picker</title>
+    <style>
+      .color-picker {
+        display: flex;
+        align-items: center;
+      }
+
+      .color-square {
+        width: 50px;
+        height: 50px;
+        border: 1px solid #000;
+        margin-right: 10px;
+      }
+
+      .color-input {
+        width: 100px;
+        padding: 5px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="color-picker">
+      <div class="color-square" id="colorSquare"></div>
+      <input type="color" class="color-input" id="colorInput" />
+    </div>
+
+    <script>
+      var colorInput = document.getElementById("colorInput");
+      var colorSquare = document.getElementById("colorSquare");
+
+      function updateColor() {
+        var selectedColor = colorInput.value;
+        colorSquare.style.backgroundColor = selectedColor;
+      }
+
+      colorInput.addEventListener("input", updateColor);
+
+      updateColor();
+    </script>
+  </body>
+</html>
