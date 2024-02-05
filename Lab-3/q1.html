@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Table and Image Animation</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .data-table {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            margin-right: 20px;
+        }
+
+        .data-table tr:nth-child(odd) {
+            background-color: #f5f5f5;
+        }
+
+        .image {
+            width: 300px;
+            height: 200px;
+        }
+
+        #animate-button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="img_1.jpg" alt="Picture" class="image">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Column 1</th>
+                    <th>Column 2</th>
+                    <th>Column 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Data 1</td>
+                    <td>Data 2</td>
+                    <td>Data 3</td>
+                </tr>
+                <tr>
+                    <td>Data 4</td>
+                    <td>Data 5</td>
+                    <td>Data 6</td>
+                </tr>
+                <tr>
+                    <td>Data 7</td>
+                    <td>Data 8</td>
+                    <td>Data 9</td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="animate-button">Animate</button>
+    </div>
+    <script>
+        var animationPosition = 0;
+
+        $(document).ready(function() {
+            $("#animate-button").click(function() {
+                animationPosition += 100; 
+                $(".container").animate({
+                    left: animationPosition + "px"
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
