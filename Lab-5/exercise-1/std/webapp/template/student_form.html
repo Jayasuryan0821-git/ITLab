@@ -1,0 +1,19 @@
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+
+{% if student %}
+    <textarea rows="4" cols="50">
+        Name: {{ student.name }}
+        Date of Birth: {{ student.dob }}
+        Address: {{ student.address }}
+        Contact Number: {{ student.contact_number }}
+        Email: {{ student.email }}
+        Marks - English: {{ student.marks_english }}
+        Marks - Physics: {{ student.marks_physics }}
+        Marks - Chemistry: {{ student.marks_chemistry }}
+    </textarea>
+    <label>Total Percentage: {{ percentage }}</label>
+{% endif %}
