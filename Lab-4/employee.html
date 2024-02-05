@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Management System</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container mt-5">
+    <h1 class="text-center">Employee Management System</h1>
+    
+    <!-- Form for adding new employee -->
+    <form id="addForm" class="mb-4">
+      <div class="row">
+        <div class="col-md-6">
+          <input type="text" id="name" class="form-control" placeholder="Enter Name" required>
+        </div>
+        <div class="col-md-3">
+          <input type="number" id="age" class="form-control" placeholder="Enter Age" required>
+        </div>
+        <div class="col-md-3">
+          <button type="submit" class="btn btn-primary">Add Employee</button>
+        </div>
+      </div>
+    </form>
+    
+    <!-- Table to display employee data -->
+    <table id="employeeTable" class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="employeeData">
+        <!-- Data will be populated here -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- JavaScript for CRUD operations -->
+  <script>
+    // Sample data for demonstration
+    let employees = [
+      { id: 1, name: "John Doe", age: 30 },
+      { id: 2, name: "Jane Smith", age: 25 },
+      { id: 3, name: "Alice Johnson", age: 35 }
+    ];
+
+    // Function to display employees in table
+    function displayEmployees() {
+      let tableBody = document.getElementById('employeeData');
+      tableBody.innerHTML = '';
+
+      employees.forEach(employee => {
+        let row = `
+          <tr>
+            <td>${employee.name}</td>
+            <td>${employee.age}</td>
+            <td>
+              <button onclick="editEmployee(${employee.id})" class="btn btn-sm btn-primary">Edit</button>
+              <button onclick="deleteEmployee(${employee.id})" class="btn btn-sm btn-danger">Delete</button>
+            </td>
+          </tr>
+        `;
+        tableBody.innerHTML += row;
+      });
+    }
+
+    // Function to add new employee
+    document.getElementById('addForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      let name = document.getElementById('name').value;
+      let age = document.getElementById('age').value;
+      let newEmployee = { id: employees.length + 1, name: name, age: age };
+      employees.push(newEmployee);
+      displayEmployees();
+      document.getElementById('name').value = '';
+      document.getElementById('age').value = '';
+    });
+
+    // Function to edit employee
+    function editEmployee(id) {
+      let index = employees.findIndex(employee => employee.id === id);
+      if (index !== -1) {
+        let newName = prompt("Enter new name:", employees[index].name);
+        let newAge = prompt("Enter new age:", employees[index].age);
+        employees[index].name = newName;
+        employees[index].age = newAge;
+        displayEmployees();
+      }
+    }
+
+    // Function to delete employee
+    function deleteEmployee(id) {
+      let index = employees.findIndex(employee => employee.id === id);
+      if (index !== -1) {
+        employees.splice(index, 1);
+        displayEmployees();
+      }
+    }
+
+    // Display employees initially
+    displayEmployees();
+  </script>
+
+</body>
+</html>
