@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Birthday Card</title>
+    <title>greeting</title>
     <style>
       body {
         font-family: Arial, Helvetica, sans-serif;
@@ -17,84 +17,69 @@
         border-radius: 10px;
         display: inline-block;
       }
-
-      /* Your existing CSS styles here */
     </style>
   </head>
   <body>
-    <form>
-      <div class="bgcol">
-        <label for="bgcol">Choose background color:</label>
-        <select id="bgcol" name="bgcol">
-          <option value="yellow">Yellow</option>
-          <option value="blue">Blue</option>
-          <option value="green">Green</option></select
-        ><br />
-      </div>
+    <p>Select the color:</p>
+    <select name="col" id="col">
+      <option value="red">Red</option>
+      <option value="yellow">Yellow</option>
+      <option value="blue">Blue</option>
+    </select>
 
-      <div class="fontstyle">
-        <label for="fonttype">Choose font:</label>
-        <select id="fonttype" name="fonttype">
-          <option value="Arial">Arial</option>
-          <option value="sans-serif">sans-serif</option></select
-        ><br />
-      </div>
+    <p>Select the font:</p>
+    <select name="fstyle" id="col">
+      <option value="arial">Arial</option>
+      <option value="comic-sans">Comic-Sans</option>
+      <option value="sans-serif">Sans-Serif</option>
+    </select>
 
-      <div class="borderstyle">
-        <p>Choose a border style:</p>
-        <input type="radio" id="none" name="choice" value="none" />
-        <label for="none">None</label><br />
-        <input type="radio" id="double" name="choice" value="double" />
-        <label for="double">Double</label><br />
-        <input type="radio" id="solid" name="choice" value="solid" />
-        <label for="solid">Solid</label><br />
-      </div>
+    <p>Enter the fontsize</p>
+    <input type="number" id="fsize" name="fsize" />
 
-      <p class="bgpic">Add a default picture</p>
-      <input type="checkbox" id="pic" name="pic" value="" /><br />
+    <p>Choose a border style</p>
+    <input type="radio" id="none" name="choice" value="none" />
+    <label for="none">None</label>
+    <input type="radio" id="double" name="choice" value="double" />
+    <label for="double">Double</label>
+    <input type="radio" id="solid" name="choice" value="solid" />
+    <label for="solid">Solid</label>
 
-      <div class="msg">
-        <label for="message">Enter the greeting message below</label>
-        <br />
-        <input type="text" id="message" name="message" />
-      </div>
+    <p>Add Default Picture</p>
+    <input type="checkbox" id="pic" name="pic" />
 
-      <button class="submit" type="button">Update</button>
-    </form>
+    <p>Enter the message below:</p>
+    <input type="text" id="msg" name="msg" />
+    <button class="submit" type="button">Update</button>
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <script src="jquery-3.7.1.min.js"></script>
     <script>
       $(document).ready(function () {
-        // Function to handle update button click
         $(".submit").click(function () {
-          var selectedColor = $("#bgcol").val();
-          var selectedFont = $("#fonttype").val();
-          var selectedBorder = $('input[name="choice"]:checked').val();
-          var showMessage = $("#message").val();
-          var showImage = $("#pic").is(":checked");
+          let selectedCol = $("#col").val();
+          let selectedFont = $("#fstyle").val();
+          let selectedBorder = $('input[name="choice"]:checked').val();
+          let showImg = $("#pic").is(":checked");
+          let showMsg = $("#msg").val();
 
-          // Create a new block with selected styles and content
-          var $newBlock = $('<div class="generated-block"></div>');
-          $newBlock.css("background-color", selectedColor);
-          $newBlock.css("font-family", selectedFont);
+          let $newBlk = $('<div class="generated-block"></div>');
+          $newBlk.css("background-color", selectedCol);
+          $newBlk.css("font-family", selectedFont);
           if (selectedBorder === "none") {
-            $newBlock.css("border", "none");
+            $newBlk.css("border", "none");
           } else if (selectedBorder === "double") {
-            $newBlock.css("border", "3px double black");
+            $newBlk.css("border", "solid");
           } else if (selectedBorder === "solid") {
-            $newBlock.css("border", "3px solid black");
-          }
-          if (showImage) {
-            $newBlock.append('<img src="cake.jpg" alt="Default Picture">');
-          }
-          if (showMessage) {
-            $newBlock.append("<p>" + showMessage + "</p>");
+            $newBlk.css("border", "solid");
           }
 
-          // Append the new block to the body
-          $("body").append($newBlock);
+          if (showImg) {
+            $newBlk.append('<img src="spidey.jpg" alt="Spiderman">');
+          }
+          if (showMsg) {
+            $newBlk.append("<p>" + showMsg + "</p>");
+          }
+          $("body").append($newBlk);
         });
       });
     </script>
