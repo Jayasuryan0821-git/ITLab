@@ -1,0 +1,29 @@
+.flex-container {
+  text-align: center;
+}
+
+.eqn {
+  position: relative;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.equals,
+.prod,
+.divide,
+.clear {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
