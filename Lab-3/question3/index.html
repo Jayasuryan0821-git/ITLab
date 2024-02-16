@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <div id="div1">
+    <p>Choose the background color:</p>
+    <select id="bcol" value="bcol">
+      <option value="yellow">Yellow</option>
+      <option value="red">Red</option>
+      <option value="Blue">Blue</option>
+    </select>
+  </div>
+
+  <div id="div2">
+    <p>Choose the Fontstyle:</p>
+    <select id="fstyle" value="fstyle">
+      <option value="arial">Arial</option>
+      <option value="times new roman">Times New Roman</option>
+      <option value="sans-serif">Sans-Serif</option>
+    </select>
+  </div>
+
+  <p>Enter fontsize</p>
+  <input type = "text" id="fsize">
+
+  <div id="div3">
+    <p>Choose Border:</p>
+    <input type="radio" class="none">None</input>
+    <input type="radio" class="double">Double</input>
+    <input type="radio" class="solid">Solid</input>
+  </div>
+
+  <input type="checkbox" id="mycheckbox" name="mycheckbox" value="checkboxval">
+  <label for="mycheckbox">Use default picture</label>
+  
+  <p>Enter the message</p>
+  <textarea id="area" name="area" rows="3" cols="40">Enter your message</textarea>
+  <br>
+  <button id="btn">Update</button>
+
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
