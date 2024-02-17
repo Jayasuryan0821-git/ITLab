@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Student Academic Form</title>
     <link
       href="node_modules/bootstrap/dist/css/bootstrap.css"
       rel="stylesheet"
@@ -12,7 +12,7 @@
   <body>
     <div class="container">
       <div class="text-center">
-        <h2>Student Academic form</h2>
+        <h2>Student Academic Form</h2>
         <p class="lead">Please make sure information is up to date</p>
       </div>
       <div class="row justify-content-center my-5">
@@ -21,7 +21,7 @@
             <div class="mb-3">
               <label for="name" class="form-label">Name:</label>
               <input
-                type="name"
+                type="text"
                 id="name"
                 class="form-control"
                 placeholder="e.g, David"
@@ -45,7 +45,7 @@
                 <option value="chm">Chem</option>
               </select>
             </div>
-            <div class="form-group mb-5">
+            <div class="mb-3">
               <div class="form-floating">
                 <textarea
                   name="address"
@@ -87,7 +87,7 @@
                 <input
                   class="form-check-input"
                   type="radio"
-                  name="Merit"
+                  name="status"
                   id="merit"
                 />
                 <label for="merit" class="form-check-label">Merit</label>
@@ -98,7 +98,7 @@
                 <input
                   class="form-check-input"
                   type="radio"
-                  name="distinct"
+                  name="status"
                   id="distinct"
                 />
                 <label for="distinct" class="form-check-label"
@@ -112,7 +112,74 @@
           </form>
         </div>
       </div>
+
+      <!-- Carousel -->
+      <div
+        id="carouselExampleIndicators"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <table class="table table-bordered table-dark mt-5">
+              <thead>
+                <tr>
+                  <th scope="col">Day</th>
+                  <th scope="col">09:00-10:00</th>
+                  <th scope="col">10:00-11:00</th>
+                  <th scope="col">12:00-13:00</th>
+                  <th scope="col">14:00-15:00</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Monday</th>
+                  <td>Math</td>
+                  <td>Physics</td>
+                  <td>Chem</td>
+                  <td>CS</td>
+                </tr>
+                <tr>
+                  <th scope="row">Tuesday</th>
+                  <td>CS</td>
+                  <td>Math</td>
+                  <td>Chem</td>
+                  <td>CS</td>
+                </tr>
+                <tr>
+                  <th scope="row">Wednesday</th>
+                  <td>Physics</td>
+                  <td>Math</td>
+                  <td>Chem</td>
+                  <td>CS</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Add more carousel items as needed -->
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <!-- End Carousel -->
     </div>
+
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
   </body>
 </html>
