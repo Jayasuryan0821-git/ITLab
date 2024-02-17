@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="node_modules/bootstrap/dist/css/bootstrap.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="text-center">
+        <h2>Student Academic form</h2>
+        <p class="lead">Please make sure information is up to date</p>
+      </div>
+      <div class="row justify-content-center my-5">
+        <div class="col-lg-6">
+          <form action="">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name:</label>
+              <input
+                type="name"
+                id="name"
+                class="form-control"
+                placeholder="e.g, David"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email:</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="myemail@xyz.com"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="subject" class="form-label">Subject</label>
+              <select name="subject" id="subject" class="form-select">
+                <option value="math">Math</option>
+                <option value="cs">Computer Science</option>
+                <option value="phy">Physics</option>
+                <option value="chm">Chem</option>
+              </select>
+            </div>
+            <div class="form-group mb-5">
+              <div class="form-floating">
+                <textarea
+                  name="address"
+                  id="address"
+                  class="form-control"
+                  cols="30"
+                  rows="7"
+                  placeholder="Blk-59 Queens"
+                ></textarea>
+                <label for="address">Address</label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="grad"
+                />
+                <label class="form-check-label" for="grad">Graduated</label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="notgrad"
+                />
+                <label class="form-check-label" for="notgrad"
+                  >Not Graduated</label
+                >
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="Merit"
+                  id="merit"
+                />
+                <label for="merit" class="form-check-label">Merit</label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="distinct"
+                  id="distinct"
+                />
+                <label for="distinct" class="form-check-label"
+                  >Distinction</label
+                >
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="button" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  </body>
+</html>
