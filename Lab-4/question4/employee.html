@@ -3,95 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Employee Management</title>
+    <title>Document</title>
     <link
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      href="node_modules/bootstrap/dist/css/bootstrap.css"
       rel="stylesheet"
     />
+    <style>
+        .form-label{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
   </head>
   <body>
-    <div class="container mt-5">
-      <h2>Employee Management</h2>
-      <form id="employeeForm">
-        <div class="form-group">
-          <label for="name">Name:</label>
-          <input
-            type="text"
-            class="form-control"
-            id="name"
-            placeholder="Enter name"
-          />
-        </div>
-        <div class="form-group">
-          <label for="age">Age:</label>
-          <input
-            type="number"
-            class="form-control"
-            id="age"
-            placeholder="Enter age"
-          />
-        </div>
-        <div class="form-group">
-          <label for="position">Position:</label>
-          <input
-            type="text"
-            class="form-control"
-            id="position"
-            placeholder="Enter position"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary" id="createBtn">
-          Create
-        </button>
-      </form>
-      <hr />
-      <h3>Employee List</h3>
-      <ul id="employeeList" class="list-group">
-        <!-- Employee items will be dynamically added here -->
-      </ul>
+    <div class="container-fluid bg-info text-white" style="padding: 30px">
+      <div class="text-center">
+        <h2>Employee Management Form</h2>
+      </div>
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <div class="container-md">
+      <div class="row justify-content-center my-5">
+        <div class="col-auto text-center">
+            <form action=""  id="empForm" class="text-center">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="E.g. Davis">
+                <label for="age" class="form-label">Age:</label>
+                <input type="text" class="form-control" id="age" name="age">
+                <label for="role" class="form-label">Role:</label>
+                <input type="text" class="form-control" id="role" name="role" placeholder="Enter job role">
+                <button type="submit" class="btn btn-primary" style="margin-top: 30px;">Submit</button>
+            </form>
+        </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <ul id="empList" class="list-group"></ul>
+            </div>
+        </div>
+      </div>
+    </div>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
     <script>
-      $(document).ready(function () {
-        // Create Employee
-        $("#employeeForm").submit(function (event) {
-          event.preventDefault(); // Prevent default form submission
-
-          // Get form values
-          var name = $("#name").val();
-          var age = $("#age").val();
-          var position = $("#position").val();
-
-          // Create employee object
-          var employee = {
-            name: name,
-            age: age,
-            position: position,
-          };
-
-          // Append new employee to the list
-          $("#employeeList").append(
-            "<li class='list-group-item'>" +
-              name +
-              " - " +
-              age +
-              " years old, " +
-              position +
-              "<button class='btn btn-danger btn-sm float-right delete-btn'>Delete</button></li>"
-          );
-
-          // Clear form fields
-          $("#name").val("");
-          $("#age").val("");
-          $("#position").val("");
+        $(document).ready(function(){
+            $("#empForm").submit(function(event){
+                event.preventDefault();
+                let name = $("#name").val();
+                let age = $("#age").val();
+                let role = $("#role").val();
+                let employee = {
+                    name:name,
+                    age:age,
+                    role:role};
+                $("#empList").append("<li class='list-group-item'>" + name + " - " + age + " - "  + role + "<button class='btn btn-danger btn-sm float-right delete-btn'>Delete</button></li>")
+                $("#name").val("");
+                $("#age").val("");
+                $("#role").val("");
+            });
+            $(document).on("click",".delete-btn",function(){
+                $(this).parent().remove();
+            });
         });
-
-        // Delete Employee
-        $(document).on("click", ".delete-btn", function () {
-          $(this).parent().remove();
-        });
-      });
     </script>
   </body>
 </html>
