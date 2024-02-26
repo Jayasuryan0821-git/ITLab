@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Page</title>
+</head>
+<body>
+    <h2>Details:</h2>
+    <p>Name: {{ name }}</p>
+    <p>Roll: {{ roll }}</p>
+    <p>Subject: {{ subject }}</p>
+    <form action="{% url 'first_page' %}">
+        <button type="submit">Go Back</button>
+    </form>
+</body>
+</html>
