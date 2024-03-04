@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Selection</title>
+</head>
+<body>
+    <form method="post" action="{% url 'generate_bill' %}">
+        {% csrf_token %}
+        <input type="radio" id="hp" name="brand" value="HP">
+        <label for="hp">HP</label><br>
+        <input type="radio" id="nokia" name="brand" value="Nokia">
+        <label for="nokia">Nokia</label><br>
+        <input type="radio" id="samsung" name="brand" value="Samsung">
+        <label for="samsung">Samsung</label><br>
+        <input type="radio" id="motorola" name="brand" value="Motorola">
+        <label for="motorola">Motorola</label><br>
+        <input type="radio" id="apple" name="brand" value="Apple">
+        <label for="apple">Apple</label><br>
+
+        <input type="checkbox" id="mobile" name="category" value="Mobile">
+        <label for="mobile">Mobile</label><br>
+        <input type="checkbox" id="laptop" name="category" value="Laptop">
+        <label for="laptop">Laptop</label><br>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" value="1"><br>
+
+        <input type="submit" value="Produce Bill">
+    </form>
+</body>
+</html>
