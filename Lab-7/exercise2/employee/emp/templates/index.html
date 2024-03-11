@@ -1,0 +1,40 @@
+<!-- emp/templates/emp/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management System</title>
+</head>
+<body>
+    <h1>Welcome to Employee Management System</h1>
+
+    <h2>Insert Data into WORKS Table</h2>
+    <form method="post" action="{% url 'insert_works' %}">
+        {% csrf_token %}
+        <label for="person_name">Person Name:</label>
+        <input type="text" id="person_name" name="person_name"><br>
+        <label for="company_name">Company Name:</label>
+        <input type="text" id="company_name" name="company_name"><br>
+        <label for="salary">Salary:</label>
+        <input type="text" id="salary" name="salary"><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Retrieve Data from WORKS Table</h2>
+    <form method="get" action="{% url 'retrieve_data' %}">
+        <label for="company_name_query">Company Name:</label>
+        <input type="text" id="company_name_query" name="company_name_query"><br>
+        <button type="submit">Retrieve</button>
+    </form>
+
+    {% if works_data %}
+    <h2>Data from WORKS Table:</h2>
+    <ul>
+        {% for item in works_data %}
+        <li>{{ item.person_name }} - {{ item.company_name }} - {{ item.salary }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
