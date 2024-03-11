@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Results</title>
+</head>
+<body>
+    <h1>All Results</h1>
+
+    <h2>Authors</h2>
+    <ul>
+        {% for author in authors %}
+            <li>{{ author.first_name }} {{ author.last_name }} - {{ author.email }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Publishers</h2>
+    <ul>
+        {% for publisher in publishers %}
+            <li>{{ publisher.name }} - {{ publisher.street_address }}, {{ publisher.city }}, {{ publisher.state_province }}, {{ publisher.country }} - Website: {{ publisher.website }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Books</h2>
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }} - Published on: {{ book.publication_date }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
