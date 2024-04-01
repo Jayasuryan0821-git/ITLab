@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Human Details</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<select id="human_select">
+    <option value="">Select a person</option>
+    {% for human in humans %}
+    <option value="{{ human.id }}">{{ human.first_name }}</option>
+    {% endfor %}
+</select>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="human_id" id="human_id">
+    <input type="text" name="first_name" id="first_name" placeholder="First Name">
+    <input type="text" name="last_name" id="last_name" placeholder="Last Name">
+    <input type="text" name="phone" id="phone" placeholder="Phone">
+    <input type="text" name="address" id="address" placeholder="Address">
+    <input type="text" name="city" id="city" placeholder="City">
+    <button type="submit" name="update">Update</button>
+    <button type="submit" name="delete">Delete</button>
+</form>
+
+<script>
+$(document).ready(function(){
+    $('#human_select').change(function(){
+        var human_id = $(this).val();
+        $('#human_id').val(human_id);
+
+        $.ajax({
+            url: '/get_human_details/',
+            data: {
+                'human_id': human_id
+            },
+            dataType: 'json',
+            success: function (data) {
+                $('#first_name').val(data.first_name);
+                $('#last_name').val(data.last_name);
+                $('#phone').val(data.phone);
+                $('#address').val(data.address);
+                $('#city').val(data.city);
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
