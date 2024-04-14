@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Directory</title>
+</head>
+<body>
+    <h1>Website Directory</h1>
+    <h2>Categories</h2>
+    {% for category in categories %}
+        <h3>{{ category.name }}  (Likes: {{ category.num_likes }}, Vists: {{ category.num_likes }})
+        <ul>
+            {% for page in category.page_set.all %}
+                <li><a href="{{ page.url }}"> {{ page.title }} </a>(Views: {{ page.views }})</li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+        <hr>
+        <a href="{% url 'add_page' %}">Add Page</a>
+        <a href="{% url 'add_category' %}">Add Category</a>
+    <body>
+</html> 
