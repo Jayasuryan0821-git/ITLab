@@ -3,21 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Directory</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>Website Directory</h1>
-    <h2>Categories</h2>
-    {% for category in categories %}
-        <h3>{{ category.name }}  (Likes: {{ category.num_likes }}, Vists: {{ category.num_likes }})
-        <ul>
-            {% for page in category.page_set.all %}
-                <li><a href="{{ page.url }}"> {{ page.title }} </a>(Views: {{ page.views }})</li>
-            {% endfor %}
-        </ul>
-        {% endfor %}
-        <hr>
-        <a href="{% url 'add_page' %}">Add Page</a>
-        <a href="{% url 'add_category' %}">Add Category</a>
-    <body>
-</html> 
+    <h1>Welcome to the Library</h1>
+    <ul>
+        <li><a href="{% url 'author_create' %}">Add Author</a></li>
+        <li><a href="{% url 'publisher_create' %}">Add Publisher</a></li>
+        <li><a href="{% url 'book_create' %}">Add Book</a></li>
+        <li><a href="{% url 'display_all' %}">Display Results</a></li>
+    </ul>
+</body>
+</html>

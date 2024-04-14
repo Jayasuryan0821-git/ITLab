@@ -1,14 +1,17 @@
 from django import forms
-from .models import Category,Page
+from .models import Book,Author,Publisher
 
-class CategoryForm(forms.ModelForm):
+class BookForm(forms.ModelForm):
     class Meta:
-        model = Category
-        fields = ['name','num_visits','num_likes']
-    
-class PageForm(forms.ModelForm):
+        model = Book
+        fields = ['title','pub_date','authors','publisher']
+
+class AuthorForm(forms.ModelForm):
     class Meta:
-        model = Page
-        fields = ['category','title','url','views']
+        model = Author
+        fields = ['first_name','last_name','email']
 
-
+class PublisherForm(forms.ModelForm):
+    class Meta:
+        model = Publisher
+        fields = ['name','address','city','state_province','country','website']

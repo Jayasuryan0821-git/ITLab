@@ -1,19 +1,23 @@
 from django.db import models
+
 # Create your models here.
+class Author(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    email = models.EmailField()
 
-class Category(models.Model):
-    name = models.CharField(max_length=200)
-    num_visits = models.IntegerField()
-    num_likes = models.IntegerField()
+class Publisher(models.Model):
+    name = models.CharField(max_length=30)
+    address = models.CharField(max_length=100)
+    city = models.CharField(max_length=50)
+    state_province = models.CharField(max_length=50)
+    country = models.CharField(max_length=50)
+    website = models.URLField()
 
-    def __str__(self):
-        return self.name 
+class Book(models.Model):
+    title = models.CharField(max_length=100)
+    pub_date = models.DateField()
+    authors = models.ManyToManyField(Author)
+    publisher = models.ForeignKey(Publisher,on_delete=models.CASCADE)
 
-class Page(models.Model):
-    category = models.ForeignKey(Category,on_delete=models.CASCADE)
-    title = models.CharField(max_length=255)
-    url = models.URLField()
-    views = models.IntegerField()
-
-    def __str__(self):
-        return self.title
+ 
