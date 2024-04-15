@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Results</h1>
+    <h2>Author</h2>
+    <ul>
+        {% for author in authors %}
+        <li> {{ author.first_name }} , {{ author.last_name }}, {{ author.email }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Publisher</h2>
+    <ul>
+        {% for publisher in publishers %}
+        <li>{{ publisher.name }}</li>
+        <li>{{ publisher.address }}</li>
+        <li>{{ publisher.city }}</li>
+        <li>{{ publisher.state_province }}</li>
+        <li>{{ publisher.country }}</li>
+        <li>{{ publisher.website }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Book</h2>
+    <ul>
+        {% for book in books %}
+        <li>{{ book.title }}</li>
+        <li>{{ book.pub_date }}</li>
+        {% endfor %}
+        <h2>Review</h2>
+        
+        <ul>
+            {% if data %}
+            {% for key,value in data.items %}
+            <li>{{ key }} {{ value }}</li>
+            {% endfor %}
+            {% endif %}
+        </ul>
+    </ul>
+</body>
+</html> 
